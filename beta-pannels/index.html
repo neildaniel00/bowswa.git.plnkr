@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pretzel Clicker Beta</title>
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            let keysDown = {};
+            window.onkeydown = function (keyboardshortcuts) {
+                keysDown[keyboardshortcuts.key] = true;
+
+                if (keysDown['Control'] && keysDown['x']) {
+                    console.log('Game Saved!');
+                    save();
+                } else if (keysDown['Control'] && keysDown['v']) {
+                    console.log('Game Loaded!');
+                    load();
+                }
+            };
+
+            window.onkeyup = function (keyboardshortcuts) {
+                keysDown[keyboardshortcuts.key] = false;
+            };
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+  <div class="toppane">
+            <p>
+                <a href="https://bowswa.github.io" target="_blank">Bowswa</a> &
+                <a href="https://neildaniel00.github.io" target="_blank"
+                    >neildaniel00</a
+                >
+                |
+                <a href="https://discord.gg/RqSwaQTZn4" target="_blank"
+                    >Game Discord</a
+                >
+                <span class="hidden"
+                    >sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</span
+                >
+                <span
+                    onmouseover="showVersions()"
+                    onmouseout="hideVersions()"
+                    class="hoverer"
+                >
+                    Other Versions:
+                    <div class="hover-content" id="versions">
+                        <a href="../index.html">Live</a>
+                        <a href="/beta/index.html">Beta</a>
+                    </div>
+                </span>
+            </p>
+</div>
+      <div class="divs"></div>
+  <div class="leftpane">
+            <p id="prtzelBank">Pretzels: 0</p>
+            <input
+                type="image"
+                class="box"
+                id="pretzel"
+                onclick="pretzelClicked()"
+                alt="Pretzel"
+                src="https://Bowswa.github.io/experiments/pretzel-clicker/img/Pretzel.png"
+            />
+            <p id="version">Version:</p>
+
+        <!--<div class="sectionLeft" id="sectionLeft" style="height:100%;width:5px;background-color: black;"></div>-->
+</div>
+
+  <div class="middlepane">
+        <button class="menu buttons" id="settings">Settings</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div>
+                    <button class="loader buttons" onclick="load()">
+                        Load
+                    </button>
+                    <button class="loader buttons" onclick="save()">
+                        Save
+                    </button>
+                    <button class="loader buttons" onclick="reset()">
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var modal = document.getElementById('myModal');
+
+            var btn = document.getElementById('settings');
+
+            var span = document.getElementsByClassName('close')[0];
+
+            btn.onclick = function () {
+                modal.style.display = 'block';
+            };
+
+            span.onclick = function () {
+                modal.style.display = 'none';
+            };
+
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            };
+        </script>
+
+        <button class="menu buttons" id="stats">Stats</button>
+        <div id="myModal2" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+        </div>
+
+        <script>
+            var modal2 = document.getElementById('myModal2');
+
+            var btn2 = document.getElementById('stats');
+
+            var span2 = document.getElementsByClassName('close')[1];
+
+            btn2.onclick = function () {
+                modal2.style.display = 'block';
+            };
+
+            span2.onclick = function () {
+                modal2.style.display = 'none';
+            };
+
+            window.onclick = function (event) {
+                if (event.target == modal2) {
+                    modal2.style.display = 'none';
+                }
+            };
+        </script>
+        <button class="menu buttons" id="changelog">Updates</button>
+        <div id="myModal3" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p class="warning">
+                    This game is relatively new and still may have bugs. Please
+                    report them in the Discord.
+                </p>
+                <br />
+                <p class="update-name">Bug Fix V1</p>
+                <p class="update-bullet">Fixed pretzel click bug</p>
+                <p class="update-bullet">
+                    Moved PPS(Pretzels Per Second) to a new calculation
+                </p>
+                <p class="update-bullet">Fixed pretzel bank storage</p>
+                <p class="update-bullet">
+                    Fixed an issue with updating how many Grandmas you have in
+                    some cases
+                </p>
+                <p class="update-bullet">
+                    Fixed an issue with gramdma prices not updating in some
+                    cases
+                </p>
+                <p class="shadow-bullet">
+                    Many shadow patches fixing bugs created in this update and
+                    adding styling
+                </p>
+                <br />
+                <p class="update-name">New Waste of Time</p>
+                <p class="update-bullet">Released Game</p>
+                <p class="update-disc">
+                    Well, is this a waste of my time? I had a couple hours to
+                    spend.
+                </p>
+            </div>
+        </div>
+
+        <script>
+            var modal3 = document.getElementById('myModal3');
+
+            var btn3 = document.getElementById('changelog');
+
+            var span3 = document.getElementsByClassName('close')[2];
+
+            btn3.onclick = function () {
+                modal3.style.display = 'block';
+            };
+
+            span3.onclick = function () {
+                modal3.style.display = 'none';
+            };
+
+            window.onclick = function (event) {
+                if (event.target == modal3) {
+                    modal3.style.display = 'none';
+                }
+            };
+        </script>
+        <!--<button class="menu" id="Acendance">Acend</button>-->
+</div>
+        <div class="rightpane">
+            <p id="clicker">Clicker! 0 Owned</p>
+            <p id="clicker_disc">Autoclicks the Pretzel every 10 seconds.</p>
+            <p id="clicker_price">15 Pretzels</p>
+            <button class="buy buttons" onclick="buyClicker()">Buy</button>
+            &NonBreakingSpace;
+            <button class="sell buttons" onclick="sellClicker()">Sell</button>
+            <br />
+            <p id="grandma_baker">Grandma Baker! 0 Owned</p>
+            <p id="grandma_baker_disc">Bakes a cookie every single second.</p>
+            <p id="grandma_price">100 Pretzels</p>
+            <button class="buy buttons" onclick="buyGrandma()">Buy</button>
+            &NonBreakingSpace;
+            <button class="sell buttons" onclick="sellGrandma()">Sell</button>
+            </div>
+            </div>
+        <script src="main.js"></script>
+    </body>
+</html>
