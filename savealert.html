@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Alert Boxes - neildaniel00</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn1.iconfinder.com/data/icons/cursor-pointers/24/9-512.png"
+    />
+
+    <style>
+      @font-face {
+        font-family: 'Product Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Open Sans'), local('OpenSans'),
+          url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
+            format('woff2');
+      }
+      body {
+        font-family: Product Sans;
+      }
+
+      .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.6s;
+        margin-bottom: 15px;
+        font-size: 12.5px;
+      }
+      .alert.success {
+        background-color: #4caf50;
+        width: 150px;
+        height: 15px;
+      }
+      .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .closebtn:hover {
+        color: black;
+      }
+      /*Moves alerts to bottom*/
+      .footer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h2>Game Saved!</h2>
+      <p>Click on the button below to activate the message</p>
+      <button onclick="showalert()"><p>Save Game</p></button>
+      <footer class="footer">
+        <div id="alertgamesaved">
+          <div class="alert success">
+            <span class="closebtn">&times;</span>
+            <strong>Success!</strong> Game Saved!
+          </div>
+        </div>
+      </footer>
+      <script>
+        document.getElementById('alertgamesaved').style.display = "none";
+        function showalert() {
+        document.getElementById('alertgamesaved').style.display = "block";
+        }
+        var close = document.getElementsByClassName('closebtn');
+        var i;
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.opacity = '0';
+            setTimeout(function () {
+              div.style.display = 'none';
+            }, 300);
+          };
+        }
+      </script>
+    </center>
+  </body>
+</html>
